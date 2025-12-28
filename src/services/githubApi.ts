@@ -33,10 +33,3 @@ export async function fetchGitHub<T>(url: string): Promise<T> {
     throw error;
   }
 }
-
-// Endpoints
-export const GITHUB_API = {
-  USER: (username: string) => `https://api.github.com/users/${username}`,
-  USER_REPOS: (username: string) => `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
-  REPO_LANGUAGES: (owner: string, repo: string) => `https://api.github.com/repos/${owner}/${repo}/languages`,
-};

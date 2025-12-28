@@ -5,18 +5,16 @@ import Card from './components/ui/card';
 import Button from './components/ui/button';
 import CommitChart from './components/charts/commit';
 import LanguageChart from './components/charts/language';
-//import type {Metric} from './types/cardtype.ts';
 import { MetricConfig } from './types/cardtype.ts';
 import { buildMetrics } from './helpers/buildMetrics.ts';
 import { buildLanguageChart } from './helpers/buildLanguageChart.ts';
 import './App.css';
-//import type { RepoDashboard } from './types/github.ts';
-//import type { GitHubRepo } from './types/github.ts';
+
 
 
 function App() {
-
-  const { data, loading, error, search } = useRepoSearch(); 
+  
+  const { data, loading, search } = useRepoSearch(); // se usar os debugs logs, adicionar 'error' aqui
   const [term, setTerm] = useState('');
   const metrics = data ? buildMetrics(data) : [];
   const langData = data ? buildLanguageChart(data.languages, 4) : [];
@@ -28,17 +26,16 @@ function App() {
     search('stars:>=10000');
   }, []);
 
-  // LOG DE DEBUG
-  console.log('DATA DO HOOK:', data);
-  console.log('LOADING:', loading);
-  console.log('ERROR:', error);
-  console.log('COMMIT DATA:', data?.commitStats);
-  console.log('TYPE:', typeof data?.commitStats);
+  // DEBUG LOGS
+  // console.log('DATA DO HOOK:', data);
+  // console.log('LOADING:', loading);
+  // console.log('ERROR:', error);
+  // console.log('COMMIT DATA:', data?.commitStats);
+  // console.log('TYPE:', typeof data?.commitStats);
 
 
   // handle de busca de repos
   const handleSearch = (term: string) => {
-    console.log('termo:', term);
 
   if (!term.trim()) {
     alert('Digite o nome de um repositório!');
@@ -71,14 +68,6 @@ const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setSuggestions([]);
   }
 };
-
-  //dados de teste do card
-  // const testMetric: Metric[] = [
-  //   { type: 'stars', count: 1530 },
-  //   { type: 'forks', count: 240 },
-  //   { type: 'watchers', count: 980 }
-  // ]
-
 
   return (
     <>

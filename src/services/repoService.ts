@@ -14,6 +14,7 @@ export async function getRepo(
   );
 
   if (!response.items.length) {
+    alert('Nenhum repositório encontrado');
     throw new Error('Nenhum repositório encontrado');
   }
 

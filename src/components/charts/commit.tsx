@@ -17,14 +17,6 @@ interface CommitChartProps {
   }>;
 }
 
-//Dados de teste
-// const data = [
-//     { month: 'Jan', commits: 30 },
-//     { month: 'Feb', commits: 45 },
-//     { month: 'Mar', commits: 28 },
-//     { month: 'Apr', commits: 50 },
-// ];
-
 const CommitChart: React.FC<CommitChartProps> = ({ data }) => {
     const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
      const chartData = Array.isArray(data) ? data : [];

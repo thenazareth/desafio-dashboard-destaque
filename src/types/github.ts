@@ -20,13 +20,6 @@ export interface GitHubRepo {
   watchers_count: number;
 }
 
-// Commits do repo
-export interface WeeklyCommit {
-  week: number;
-  total: number;
-  days: number[];
-}
-
 // Linguagens repos
 export interface RepoLanguages {
   [language: string]: number;

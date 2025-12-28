@@ -1,4 +1,3 @@
-//import type { RepoLanguages } from '../types/github';
 import type { LanguageChartItem } from '../types/langchartype';
 
 export function buildLanguageChart(
