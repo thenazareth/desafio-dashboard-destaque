@@ -1,0 +1,119 @@
+.overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.repo-search {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.input-suggestions {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 300px;
+  border-radius: 8px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.input-suggestions ul {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 0 0 8px 8px;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.input-suggestions ul li:hover {
+  background-color: #f0f0f0;
+}
+
+input {
+  width: 300px;
+  height: 30px;
+  border-radius: 8px;
+  border: solid 1px black;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  background-color: #ececec;
+  width: 70%;
+  height: 70%;
+}
+
+.dashboard.loading {
+  filter: blur(4px);
+  pointer-events: none;
+  opacity: 0.6;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 25%;
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px;
+  gap: 8px;
+}
+
+/* github img config */
+.sidebar-icon{
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  border-radius: 50px;
+}
+
+.sidebar-header{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 14px;
+  width: 80%;
+}
+
+.graphs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 75%;
+}
+
+.chart-title{
+  color: #28a745;
+}
+
+.commit-chart, .language-chart {
+  width: 100%;
+  height: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  
+}
