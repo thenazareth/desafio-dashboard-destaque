@@ -46,11 +46,13 @@ function App() {
 
 };
 
+
+// handle de sugestões de termos
 const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
   const value = e.target.value;
   setTerm(value);
 
-  if (value.length > 1) { // busca sugestões só se o termo tiver mais de 1 caractere
+  if (value.length > 1) { // busca sugestões só se o termo tiver +1 caractere
     try {
       const res = await fetch(`https://api.github.com/search/repositories?q=${value}&sort=stars&order=desc&per_page=5`);
       const data = await res.json();
@@ -71,7 +73,7 @@ const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
 
   return (
     <>
-          <div className='overlay'>
+      <div className='overlay'>
         <div className='repo-search'>
           <div className='input-suggestions'>
             <input type="text"
@@ -121,11 +123,11 @@ const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
           </div>
           <div className='graphs'>
             <div className='commit-chart'>
-              <h3 className='chart-title'>Commits nas últimas semanas</h3>
+              <h3 className='chart-title'>Commits das últimas 4 semanas</h3>
               <CommitChart data={data?.commitStats} />
             </div>
             <div className='language-chart'>
-              <h3 className='chart-title'>Linguagens mais usadas</h3>
+              <h3 className='chart-title'>Linguagens usadas no repositório</h3>
                 <LanguageChart data={langData} />
             </div>
           </div>
